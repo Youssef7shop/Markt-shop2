@@ -1,0 +1,32 @@
+/* provider.css */
+.bg-gold {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    max-width: 800px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.status-active { background: #D1FAE5; color: #065F46; }
+.status-pending { background: #FEF3C7; color: #92400E; }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | Boostify AI</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- الشريط الجانبي (Sidebar)[cite: 1] -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Boostify AI</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active">لوحة التحكم</a>
+                <a href="orders.html">مشترياتي</a>
+                <a href="services.html">تصفح الخدمات</a>
+                <a href="favorites.html">المفضلة</a>
+                <a href="profile.html">الملف الشخصي</a>
+                <a href="settings.html">الإعدادات</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn btn-outline btn-block">تسجيل الخروج</button>
+            </div>
+        </aside>
+
+        <!-- المحتوى الرئيسي (Main Content) -->
+        <main class="main-content">
+            <header class="topbar">
+                <h2 id="welcomeMsg">مرحباً...</h2>
+                <div class="user-menu">
+                    <span id="walletBalance" class="badge">الرصيد: 0.00$</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- الإحصائيات السريعة -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>إجمالي الطلبات</h3>
+                        <p id="totalOrders" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>الطلبات قيد التنفيذ</h3>
+                        <p id="pendingOrders" class="stat-value">0</p>
+                    </div>
+                </div>
+
+                <!-- جدول آخر الطلبات[cite: 1] -->
+                <div class="table-container">
+                    <h3>أحدث الطلبات</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>الخدمة</th>
+                                <th>مقدم الخدمة</th>
+                                <th>السعر</th>
+                                <th>الحالة</th>
+                                <th>التاريخ</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersTable">
+                            <!-- سيتم تعبئة البيانات برمجياً عبر Supabase -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/auth-guard.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

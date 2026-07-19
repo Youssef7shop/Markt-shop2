@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول | Boostify AI</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h2>مرحباً بعودتك</h2>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" required>
+                        <button type="button" id="togglePwd" class="toggle-pwd">👁️</button>
+                    </div>
+                </div>
+                <div class="form-group checkbox-group" style="justify-content: space-between;">
+                    <label><input type="checkbox" id="remember"> تذكرني</label>
+                    <a href="forgot-password.html">نسيت كلمة المرور؟</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" id="loginBtn">دخول</button>
+                <div id="loginError" class="error-msg"></div>
+            </form>
+            
+            <div class="social-login">
+                <p>أو الدخول عبر</p>
+                <button id="googleLogin" class="btn btn-outline btn-block">Google</button>
+                <button id="githubLogin" class="btn btn-outline btn-block" style="margin-top:10px;">GitHub</button>
+            </div>
+
+            <div class="auth-footer">
+                <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="js/supabase.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

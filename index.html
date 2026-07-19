@@ -1,16 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Boostify AI - لوحة التحكم</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-[#0B0D10] text-white font-sans antialiased selection:bg-[#E2B93B] selection:text-black">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boostify AI | المنصة الأذكى لخدماتك</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- استدعاء Supabase SDK[cite: 1] -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">Boostify AI</div>
+            <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="services.html">الخدمات</a>
+                <a href="categories.html">الأقسام</a>
+                <a href="faq.html">الأسئلة الشائعة</a>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+                <a href="register.html" class="btn btn-primary">حساب جديد</a>
+            </div>
+        </div>
+    </header>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>انجز أعمالك بذكاء مع <span>Boostify AI</span></h1>
+            <p>سوق الخدمات الرقمية الأول الذي يجمع بين أمهر المستقلين وتقنيات الذكاء الاصطناعي لضمان أفضل تجربة لك.</p>
+            <div class="hero-actions">
+                <a href="services.html" class="btn btn-primary btn-large">تصفح الخدمات</a>
+                <a href="register.html" class="btn btn-outline btn-large">انضم كمزود خدمة</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Boostify AI. جميع الحقوق محفوظة.</p>
+            <div class="footer-links">
+                <a href="privacy-policy.html">سياسة الخصوصية</a>
+                <a href="terms.html">شروط الاستخدام</a>
+                <a href="support.html">الدعم الفني</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- السكربتات الأساسية -->
+    <script src="js/supabase.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الخدمات | Boostify AI</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="provider.css">
+    <!-- استدعاء Supabase SDK[cite: 1] -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- الشريط الجانبي للمزود[cite: 1] -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Boostify AI - Provider</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="provider-profile.html">الملف الشخصي</a>
+                <a href="provider-services.html" class="active">إدارة الخدمات</a>
+                <a href="provider-orders.html">الطلبات الواردة</a>
+                <a href="wallet.html">المحفظة</a>
+                <a href="transactions.html">سجل العمليات</a>
+                <a href="messages.html">الرسائل</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn btn-outline btn-block">تسجيل الخروج</button>
+            </div>
+        </aside>
+
+        <!-- المحتوى الرئيسي[cite: 1] -->
+        <main class="main-content">
+            <header class="topbar">
+                <h2>إدارة الخدمات</h2>
+                <div class="user-menu">
+                    <a href="provider-profile.html" class="btn btn-outline">عودة للملف الشخصي</a>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- نموذج إضافة خدمة جديدة[cite: 1] -->
+                <div class="form-container" style="margin-bottom: 30px; max-width: 100%;">
+                    <h3>إضافة خدمة جديدة</h3>
+                    <form id="serviceForm" class="auth-form" style="margin-top: 15px;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>عنوان الخدمة</label>
+                                <input type="text" id="serviceTitle" required placeholder="مثال: تصميم شعار احترافي">
+                            </div>
+                            <div class="form-group">
+                                <label>القسم</label>
+                                <select id="serviceCategory" required style="width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px;">
+                                    <option value="">جاري تحميل الأقسام...</option>
+                                    <!-- سيتم تعبئتها برمجياً من جدول categories -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>وصف الخدمة</label>
+                            <textarea id="serviceDesc" rows="4" required placeholder="اشرح تفاصيل الخدمة بدقة..."></textarea>
+                        </div>
+                        <div class="form-group" style="max-width: 200px;">
+                            <label>السعر (بالدولار)</label>
+                            <input type="number" id="servicePrice" min="5" step="0.01" required placeholder="0.00">
+                        </div>
+                        <button type="submit" class="btn btn-primary">نشر الخدمة</button>
+                    </form>
+                </div>
+
+                <!-- جدول عرض الخدمات الحالية (CRUD - Read & Delete)[cite: 1] -->
+                <div class="table-container">
+                    <h3>خدماتي الحالية</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>عنوان الخدمة</th>
+                                <th>السعر</th>
+                                <th>الحالة</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="servicesTableBody">
+                            <tr>
+                                <td colspan="4" style="text-align:center;">جاري تحميل الخدمات...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- السكربتات الأساسية[cite: 1] -->
+    <script src="js/supabase.js"></script>
+    <script src="js/auth-guard.js"></script>
+    <script src="provider-services.js"></script>
+    <script>
+        // دالة إضافية لجلب الأقسام لتعبئة الـ Select
+        document.addEventListener('DOMContentLoaded', async () => {
+            const { data: categories, error } = await window.supabaseClient
+                .from('categories')
+                .select('id, name');
+            
+            if (!error && categories) {
+                const select = document.getElementById('serviceCategory');
+                select.innerHTML = '<option value="">اختر القسم...</option>';
+                categories.forEach(cat => {
+                    const option = document.createElement('option');
+                    option.value = cat.id;
+                    option.textContent = cat.name;
+                    select.appendChild(option);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

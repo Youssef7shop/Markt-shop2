@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الإدارة | Boostify AI</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- الشريط الجانبي للإدارة (Admin Sidebar) -->
+        <aside class="sidebar admin-sidebar">
+            <div class="sidebar-header">
+                <h3>Boostify AI - Admin</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="admin-dashboard.html" class="active">نظرة عامة</a>
+                <a href="admin-users.html">إدارة المستخدمين</a>
+                <a href="admin-providers.html">إدارة المزودين</a>
+                <a href="admin-payments.html">المدفوعات</a>
+                <a href="admin-withdrawals.html">طلبات السحب</a>
+                <a href="admin-coupons.html">الكوبونات</a>
+                <a href="admin-statistics.html">الإحصائيات المتقدمة</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn btn-outline btn-block" style="color: #ef4444; border-color: #ef4444;">تسجيل الخروج</button>
+            </div>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <header class="topbar">
+                <h2 id="welcomeMsg">لوحة التحكم الإدارية</h2>
+                <div class="user-menu">
+                    <span class="badge bg-admin">مدير النظام</span>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <!-- الإحصائيات العامة للمنصة[cite: 1] -->
+                <div class="stats-grid admin-stats">
+                    <div class="stat-card">
+                        <h3>إجمالي المستخدمين</h3>
+                        <p id="totalUsers" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>إجمالي الخدمات</h3>
+                        <p id="totalServices" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>الطلبات النشطة</h3>
+                        <p id="activeOrders" class="stat-value">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>إجمالي الأرباح</h3>
+                        <p id="totalRevenue" class="stat-value">$0.00</p>
+                    </div>
+                </div>
+
+                <div class="admin-tables-grid">
+                    <!-- أحدث المستخدمين المسجلين[cite: 1] -->
+                    <div class="table-container">
+                        <h3>أحدث المستخدمين</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>الاسم</th>
+                                    <th>الدور</th>
+                                    <th>تاريخ التسجيل</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentUsersTable">
+                                <tr><td colspan="3" style="text-align:center;">جاري التحميل...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- أحدث طلبات السحب المعلقة[cite: 1] -->
+                    <div class="table-container">
+                        <h3>طلبات سحب معلقة</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>المزود</th>
+                                    <th>المبلغ</th>
+                                    <th>إجراء</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pendingWithdrawalsTable">
+                                <tr><td colspan="3" style="text-align:center;">لا توجد طلبات سحب معلقة.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- السكربتات الأساسية[cite: 1] -->
+    <script src="js/supabase.js"></script>
+    <script src="js/auth-guard.js"></script>
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
