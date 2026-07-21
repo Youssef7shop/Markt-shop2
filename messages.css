@@ -1,0 +1,100 @@
+/* messages.css */
+@import url('dashboard.css');
+
+.chat-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* تقسيم الشاشة */
+    height: 80vh;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: #fff;
+    overflow: hidden;
+}
+
+/* قائمة المحادثات الجانبية */
+.conversations-list {
+    border-left: 1px solid var(--border-color);
+    background: #f9fafb;
+    overflow-y: auto;
+}
+
+.conversation-item {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.conversation-item:hover {
+    background: #f3f4f6;
+}
+
+/* منطقة عرض الرسائل */
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.messages-area {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* فقاعات الرسائل */
+.message {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.message.sent {
+    background-color: var(--primary-color);
+    color: white;
+    align-self: flex-start; /* إذا كان المستخدم هو المرسل */
+}
+
+.message.received {
+    background-color: #e5e7eb;
+    color: #111827;
+    align-self: flex-end;
+}
+
+/* منطقة كتابة الرسالة */
+.msg-input-area {
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+}
+
+#msgInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.msg-input-area button {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* التجاوب مع الجوال */
+@media (max-width: 768px) {
+    .chat-layout {
+        grid-template-columns: 1fr;
+    }
+    .conversations-list {
+        display: none; /* يمكن إضافة زر تبديل في النسخة الحقيقية */
+    }
+}

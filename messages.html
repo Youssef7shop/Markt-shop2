@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الرسائل | Boostify AI</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="messages.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- الشريط الجانبي -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Boostify AI</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">لوحة التحكم</a>
+                <a href="messages.html" class="active">الرسائل</a>
+                <a href="provider-services.html">خدماتي</a>
+            </nav>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <header class="topbar">
+                <h2>مركز الرسائل</h2>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="chat-layout">
+                    <!-- قائمة المحادثات -->
+                    <aside class="conversations-list" id="convList">
+                        <div class="conversation-item">جاري تحميل المحادثات...</div>
+                    </aside>
+
+                    <!-- منطقة الدردشة -->
+                    <main class="chat-window">
+                        <div class="messages-area" id="msgArea">
+                            <div class="empty-state">اختر محادثة للبدء في المراسلة</div>
+                        </div>
+                        
+                        <form id="sendMsgForm" class="msg-input-area">
+                            <input type="text" id="msgInput" placeholder="اكتب رسالتك هنا..." required>
+                            <button type="submit">إرسال</button>
+                        </form>
+                    </main>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- السكربتات -->
+    <script src="js/supabase.js"></script>
+    <script src="js/auth-guard.js"></script>
+    <script src="messages.js"></script>
+</body>
+</html>

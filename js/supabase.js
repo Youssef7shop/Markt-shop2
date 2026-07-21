@@ -1,15 +1,15 @@
 // js/supabase.js
+// js/supabase.js
 
-// استخدم المفاتيح الخاصة بك من إعدادات مشروع Supabase
-// تنبيه: في بيئة الإنتاج يفضل استخدام متغيرات البيئة إذا كنت تستخدم سيرفر،
-// أو إبقاء مفتاح ANON_KEY فقط في الواجهة الأمامية مع RLS قوي.[cite: 1]
-const SUPABASE_URL = 'https://YOUR_PROJECT_ID.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_ZKS8NSq_B6PjkyRorDzWZw_Iy7bx2Rc';
+// 1. ضع رابط مشروعك ومفتاحك هنا
+const SUPABASE_URL = 'https://eupuhvrhdqaxfpodbuxa.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_wZyQ8Okfuw5JIVOvuXpAcw_u8klN0gT'; // المفتاح الطويل
 
-// تهيئة العميل
+// 2. تهيئة العميل
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// تصدير الكائن لاستخدامه في باقي الملفات
+// 3. ربطه بكائن window ليتمكن register.js من قراءته
 window.supabaseClient = supabase;
 
-console.log("Supabase Client Initialized Successfully.");
+// 4. رسالة تأكيد لمعرفة ما إذا كان الملف يعمل فعلاً
+console.log("Supabase Client Loaded:", window.supabaseClient);
